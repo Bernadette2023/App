@@ -30,7 +30,7 @@ from sklearn.model_selection import train_test_split
 # server = flask.Flask(__name__)
 # server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
 
-external_stylesheets = ['https://codepen.io/tiaplagata/pen/yLaZKap.css']
+external_stylesheets = ['https://codepen.io/Bernadette2023/pen/oNVpYNN']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
@@ -111,18 +111,18 @@ sicily_wordcloud = '../assets/sicily_wordcloud.png'
 # The app layout
 app.layout = html.Div(children=[
     html.H1(children='DestinationPredict', style={'textAlign': 'center', 'margin-top':'5%'}),
+    
+    html.H5(children='Created by GlobeTrotter Group 9',
+             style={'textAlign': 'center', 'color': '#436783'}),
 
-    # html.H5(children='Created by: Tia Plagata | tiaplagata@gmail.com',
-    #          style={'textAlign': 'center', 'color': '#436783'}),
-
-    html.H4(children='Not sure where to travel? Use this machine learning algorithm to find your perfect destination in just a few words.',
+    html.H4(children='Not sure where to travel? Use this DestinationPredict to find your perfect destination in just a few words.',
             style={'textAlign': 'center'}),
     
     html.Br(),
     
     html.Div(["What activities do you want to do on vacation?  ",
               dcc.Input(id='my-input', value='', type='text',
-                        placeholder= 'ex. I want to go to the beach',
+                        placeholder= 'i.e.  visit museum gallery ',
                         style={'width':'65%'})]),
     html.Hr(),
     
@@ -137,23 +137,19 @@ app.layout = html.Div(children=[
 
     html.Hr(),
 
-    html.H5(children='Methodology', style={'margin-left':'10%',
-                                            'margin-right':'10%'}),
+    # html.H5(children='Methodology', style={'margin-left':'10%',
+    #                                         'margin-right':'10%'}),
     
-    html.Div(children="This machine learning algorithm predicts your perfect destination based on natural language processing and learning from over 28,000 text data points indicating attractions in 12 different cities from TripAdvisor's list of Traveler's Choice destinations for Popular World Destinations 2020.",
-             style={'margin-left':'10%', 'margin-right':'10%'}),
+    # html.Div(children="This machine learning algorithm predicts your perfect destination based on natural language processing and learning from over 28,000 text data points indicating attractions in 12 different cities from TripAdvisor's list of Traveler's Choice destinations. ",
+    #          style={'margin-left':'10%', 'margin-right':'10%'}),
+
+    # html.Br(),
+
+    # dcc.Link('Check out the full TripAdvisor list here!',
+    #         href='https://www.tripadvisor.com/TravelersChoice-Destinations',
+    #         style={'margin-left':'10%', 'margin-right':'10%'}),
 
     html.Br(),
-
-    dcc.Link('Check out the full TripAdvisor list here!',
-            href='https://www.tripadvisor.com/TravelersChoice-Destinations',
-            style={'margin-left':'10%', 'margin-right':'10%'}),
-
-    html.Br(),
-
-    dcc.Link('See my full project repo here!',
-            href='https://github.com/tiaplagata/capstone-project',
-            style={'margin-left':'10%', 'margin-right':'10%'})
     
 ])
     
