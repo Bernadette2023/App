@@ -37,7 +37,7 @@ server = app.server
 
 # Dash code here
 
-data = pd.read_csv('./assets/cities_df', index_col=0)
+data = pd.read_csv('../assets/cities_df', index_col=0)
 X = data['Attraction']
 y = data['City']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, random_state=123)
@@ -69,7 +69,7 @@ vectorizer = TfidfVectorizer(analyzer='word',
                                 
 X_train_tfidf = vectorizer.fit_transform(X_train_cleaned['cleaned'])
     
-model = load('./assets/non_lemmatized_model')
+model = load('../assets/non_lemmatized_model')
 
 def preprocess_text(text):
     """
@@ -95,25 +95,25 @@ def get_prediction(raw_text):
         pass
     
 
-bali_wordcloud = './assets/bali_wordcloud.png'
-barcelona_wordcloud = './assets/barcelona_wordcloud.png'
-crete_wordcloud = './assets/crete_wordcloud.png'
-dubai_wordcloud = './assets/dubai_wordcloud.png'
-goa_wordcloud = './assets/goa_wordcloud.png'
-istan_wordcloud = './assets/istanbul_wordcloud.png'
-london_wordcloud = './assets/london_wordcloud.png'
-majorca_wordcloud = './assets/majorca_wordcloud.png'
-paris_wordcloud = './assets/paris_wordcloud.png'
-phuket_wordcloud = './assets/phuket_wordcloud.png'
-rome_wordcloud = './assets/rome_wordcloud.png'
-sicily_wordcloud = './assets/sicily_wordcloud.png'
+bali_wordcloud = '../assets/bali_wordcloud.png'
+barcelona_wordcloud = '../assets/barcelona_wordcloud.png'
+crete_wordcloud = '../assets/crete_wordcloud.png'
+dubai_wordcloud = '../assets/dubai_wordcloud.png'
+goa_wordcloud = '../assets/goa_wordcloud.png'
+istan_wordcloud = '../assets/istanbul_wordcloud.png'
+london_wordcloud = '../assets/london_wordcloud.png'
+majorca_wordcloud = '../assets/majorca_wordcloud.png'
+paris_wordcloud = '../assets/paris_wordcloud.png'
+phuket_wordcloud = '../assets/phuket_wordcloud.png'
+rome_wordcloud = '../assets/rome_wordcloud.png'
+sicily_wordcloud = '../assets/sicily_wordcloud.png'
     
 # The app layout
 app.layout = html.Div(children=[
-    html.H1(children='The Destination Dictionary', style={'textAlign': 'center', 'margin-top':'5%'}),
+    html.H1(children='DestinationPredict', style={'textAlign': 'center', 'margin-top':'5%'}),
 
-    html.H5(children='Created by: Tia Plagata | tiaplagata@gmail.com',
-             style={'textAlign': 'center', 'color': '#436783'}),
+    # html.H5(children='Created by: Tia Plagata | tiaplagata@gmail.com',
+    #          style={'textAlign': 'center', 'color': '#436783'}),
 
     html.H4(children='Not sure where to travel? Use this machine learning algorithm to find your perfect destination in just a few words.',
             style={'textAlign': 'center'}),
@@ -200,3 +200,8 @@ def update_image(city):
 if __name__ == '__main__':
     server.run(debug=True, threaded=True)
 #     app.run_server(debug=True)
+    
+    # #waitress
+    # from waitress import serve
+    # serve(app, host="0.0.0.0", port=8050)
+
